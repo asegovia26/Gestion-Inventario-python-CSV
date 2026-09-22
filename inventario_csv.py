@@ -5,7 +5,7 @@ DIRECTORIO_DATOS = Path("datos")
 FICHERO_PRODUCTOS = DIRECTORIO_DATOS / "productos.csv"
 
 CAMPOS = [
-    "codigo",
+    "código",
     "nombre",
     "precio",
     "stock"
@@ -50,7 +50,7 @@ def cargar_productos():
 
             for numero, producto in enumerate(lector, start=2):
                 # Validación de campos obligatorios no vacíos
-                codigo = producto.get("codigo", "").strip()
+                codigo = producto.get("código", "").strip()
                 if not codigo:
                     print(f"Fila {numero} ignorada: falta el código.")
                     continue
@@ -104,7 +104,7 @@ def mostrar_productos(productos):
             precio = float(producto["precio"])
             stock = int(producto["stock"])
             print(
-                f"{producto['codigo']} | "
+                f"{producto['código']} | "
                 f"{producto['nombre']:<25} | "
                 f"{precio:.2f} € | "
                 f"Stock: {stock}"
@@ -120,7 +120,7 @@ def buscar_producto(productos):
     ).strip().upper()
 
     for producto in productos:
-        if producto["codigo"].upper() == codigo_buscado:
+        if producto["código"].upper() == codigo_buscado:
             print("\nProducto encontrado:")
             print(f"Nombre: {producto['nombre']}")
             print(f"Precio: {producto['precio']} euros")
@@ -151,7 +151,7 @@ def mostrar_poco_stock(productos):
 
             if stock < limite:
                 print(
-                    f"{producto['codigo']} | "
+                    f"{producto['código']} | "
                     f"{producto['nombre']:<25} | "
                     f"Stock: {stock}"
                 )
@@ -160,7 +160,7 @@ def mostrar_poco_stock(productos):
         except ValueError:
             print(
                 f"Stock incorrecto en el producto "
-                f"{producto['codigo']}."
+                f"{producto['código']}."
             )
 
     if encontrados == 0:
@@ -178,13 +178,13 @@ def mostrar_productos_agotados(productos):
             stock = int(producto["stock"])
 
             if stock == 0:
-                print(f"{producto['codigo']} | {producto['nombre']}")
+                print(f"{producto['código']} | {producto['nombre']}")
                 encontrados += 1
 
         except ValueError:
             print(
                 f"Stock incorrecto en el producto "
-                f"{producto['codigo']}."
+                f"{producto['código']}."
             )
 
     if encontrados == 0:
@@ -205,7 +205,7 @@ def calcular_valor_inventario(productos):
         except ValueError:
             print(
                 f"Datos numéricos incorrectos en "
-                f"{producto['codigo']}."
+                f"{producto['código']}."
             )
 
     print(
