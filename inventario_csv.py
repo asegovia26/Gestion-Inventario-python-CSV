@@ -5,7 +5,7 @@ DIRECTORIO_DATOS = Path("datos")
 FICHERO_PRODUCTOS = DIRECTORIO_DATOS / "productos.csv"
 
 CAMPOS = [
-    "codigo",
+    "código",
     "nombre",
     "precio",
     "stock"
@@ -66,7 +66,7 @@ def mostrar_productos(productos):
 
     for producto in productos:
         print(
-            f"{producto['codigo']} | "
+            f"{producto['código']} | "
             f"{producto['nombre']} | "
             f"{producto['precio']} euros | "
             f"Stock: {producto['stock']}"
@@ -100,7 +100,7 @@ def mostrar_poco_stock(productos):
 
             if stock < 5:
                 print(
-                    f"{producto['codigo']} | "
+                    f"{producto['código']} | "
                     f"{producto['nombre']} | "
                     f"Stock: {stock}"
                 )
@@ -109,7 +109,7 @@ def mostrar_poco_stock(productos):
         except ValueError:
             print(
                 f"Stock incorrecto en el producto "
-                f"{producto['codigo']}."
+                f"{producto['código']}."
             )
 
     if encontrados == 0:
@@ -129,7 +129,7 @@ def calcular_valor_inventario(productos):
         except ValueError:
             print(
                 f"Datos numéricos incorrectos en "
-                f"{producto['codigo']}."
+                f"{producto['código']}."
             )
 
     print(
